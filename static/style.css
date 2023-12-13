@@ -83,6 +83,8 @@ input {
 
 
 
+
+
 img {
   width: 160px;
   height: 160px;
@@ -209,9 +211,59 @@ input.input_vraag {
 }
 
 
-   @media only screen and (max-width: 600px) {
+
+
+
+/* filter index  */
+
+
+.container_filter {
+  background-color: blue;
+  color: white;
+  display: block;
+  width: 150px;
+  height: 500px;
+}
+
+.container_filter_item {
+  display: block;
+}
+
+.container_filter_functie {
+  border-radius: 10px;
+  border-style: solid ;
+  border-color: rgb(234, 237, 255);
+  display: flex;
+  overflow-x: hidden;
+
+}
+
+input.filter_input {
+  display: inline-flex;
+  float: right;
+  margin: 0px;
+}
+
+img.image_filter {
+width: 400px;
+display: flex;
+height: 210px;
+}
+
+
+
+
+
+
+
+  label.filter {
+    display: flex;
+    margin-top: 10px;
+
+  }
+  
     label {    
       display: inline-block;
-      margin-top: 10px;
+      margin-top: 5px;
     }
-  }
+  
