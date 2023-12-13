@@ -1,17 +1,15 @@
 from flask import Flask, render_template, url_for, redirect, app, config, flash
 from flask_sqlalchemy import SQLAlchemy
-
-
-
-app = Flask(__name__)
-
-
+from werkzeug.utils import secure_filename
 
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 import os
+from flask import Flask, render_template, request, redirect, url_for, send_file
+import io
 
-import os
+
+app = Flask(__name__)
 
 
 app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://helmerc:6h7#e61CfWEFl#@oege.ie.hva.nl/zhelmerc"
@@ -41,6 +39,8 @@ class Question_dotshop(db.Model):
      question_9 = db.Column(db.String(100), nullable=False)
      question_10 = db.Column(db.String(100), nullable=False)
      question_11 = db.Column(db.String(100), nullable=False)
+     question_12 = db.Column(db.String(100), nullable=False)
+     question_13 = db.Column(db.String(100), nullable=False)
 
      def __repr__(self):
           return f'Response {self.name}'
@@ -58,12 +58,15 @@ class Question_dotshop(db.Model):
         question_8 = request.form['question_8']
         question_9 = request.form['question_9']
         question_10 = request.form['question_10']
-        question_11 = request.form['question_11'] 
+        question_11 = request.form['question_11']
+        question_12 = request.form['question_12']
+        question_13 = request.form['question_13'] 
     
       
 
         question_dotshop = Question_dotshop(question_1=question_1, question_2=question_2, question_3=question_3, question_4=question_4, question_5=question_5, 
-                                        question_6=question_6, question_7=question_7, question_8=question_8, question_9=question_9, question_10=question_10, question_11=question_11)
+                                        question_6=question_6, question_7=question_7, question_8=question_8, question_9=question_9, question_10=question_10, 
+                                        question_11=question_11, question_12=question_12, question_13=question_13, )
 
         db.session.add(question_dotshop)
         db.session.commit()
@@ -76,6 +79,8 @@ class Question_dotshop(db.Model):
 def question_dotshop():
     return render_template("question.html")
     
+
+
 
 
 if __name__ == "__main__":
